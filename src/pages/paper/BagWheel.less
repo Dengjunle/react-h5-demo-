@@ -1,0 +1,659 @@
+@import '../../animation.less';
+
+.bag-wheel-component {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: relative;
+  overflow-y: scroll;
+  background-image: url('../../assets/innerPage/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  .logo {
+    width: 100%;
+    height: 190px;
+    background: #000;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .alert-box {
+    width: 635px;
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    background: rgba(23, 194, 194, 0.8);
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    z-index: 9999;
+    animation: fadeInDown-01 0.8s 0.1s alternate both, fadeOutUp 0.8s 3s alternate forwards;
+
+    &.error {
+      background: rgba(255, 86, 0, 0.8);
+    }
+  }
+
+  .wheel-wrapper {
+    position: relative;
+    // height: 780px;
+    margin: 300px auto 35px;
+  }
+
+  .wheel-box {
+    position: relative;
+    margin: 0 auto;
+    width: 655px;
+    height: 655px;
+    z-index: 99;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 655px;
+      height: 655px;
+      background: transparent url('../../assets/activity/wheel/wheel.png') center center no-repeat;
+      background-size: cover;
+      z-index: 10;
+    }
+
+    .wheel-loop {
+      position: absolute;
+      overflow: hidden;
+      width: 655px;
+      height: 655px;
+      display: none;
+
+      .loop {
+        position: absolute;
+        width: 655px;
+        height: 655px;
+
+        &:after {
+          content: '';
+          position: relative;
+          margin: 0 auto;
+          display: block;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          transform-origin: 50% 3.4rem;
+        }
+      }
+    }
+  }
+
+  .title-bar,
+  .wheel-box {
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+  }
+
+  .wheel-goods-box {
+    position: absolute;
+    width: 655px;
+    height: 655px;
+    left: 0;
+    top: 0;
+    transition: transform 6s ease;
+  }
+
+  .wheel-item {
+    position: absolute;
+    top: 40px;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 574px;
+    height: 574px;
+    // 扇形显示：用于在抽奖结束后的提示效果
+    .sector {
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      left: 50%;
+      width: 574px;
+      height: 574px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+
+      .sectorCss {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 50%;
+        transform-origin: 0 100%;
+        background: #eceff2;
+      }
+      .sectorCss11,.sectorCss16{
+        background: #e34a10 ;
+      }
+      .sectorCss12,.sectorCss13,.sectorCss14{
+        background-color: #f38809 ;
+      }
+      .sectorCss15,.sectorCss17{
+        background-color: #49bceb ;
+      }
+      .sectorCss18,.sectorCss19,.sectorCss20{
+        background-color: #fdcc17 ;
+      }
+    }
+  }
+
+  // 扇形排列奖品展示
+  .wheel-goods {
+    position: relative;
+    display: block;
+    width: 245px;
+    height: 245px;
+    margin: 0 auto;
+    text-align: center;
+    transform-origin: 50% 245px;
+
+    .wg-title {
+      width: 245px;
+      height: 55px;
+      font-weight: bold;
+      font-size: 30px;
+      color: #000;
+      margin-top: 50px;
+      text-align: center;
+    }
+    .wg-icon {
+      width: 80px;
+      height: 150px;
+      position: relative;
+      //display: inline-block;
+      margin: 40px auto;
+      padding-bottom: 10px;
+      padding-top: 30px;
+      // padding: 10px 0;
+      // background-color: #000;
+      // display: none;
+      div{
+        width: 100%;
+        height: 100%;
+        
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+      .wg-icon-bg11{
+        background-image: url('../../assets/activity/wheel/11.png');
+      }
+      .wg-icon-bg12{
+        background-image: url('../../assets/activity/wheel/12.png');
+      }
+      .wg-icon-bg13{
+        background-image: url('../../assets/activity/wheel/13.png');
+      }
+      .wg-icon-bg14{
+        background-image: url('../../assets/activity/wheel/14.png');
+      }
+      .wg-icon-bg15{
+        background-image: url('../../assets/activity/wheel/15.png');
+      }
+      .wg-icon-bg16{
+        background-image: url('../../assets/activity/wheel/16.png');
+      }
+      .wg-icon-bg17{
+        background-image: url('../../assets/activity/wheel/17.png');
+      }
+      .wg-icon-bg18{
+        background-image: url('../../assets/activity/wheel/18.png');
+      }
+      .wg-icon-bg19{
+        background-image: url('../../assets/activity/wheel/19.png');
+      }
+      .wg-icon-bg20{
+        background-image: url('../../assets/activity/wheel/20.png');
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+    }
+  }
+
+  // 按钮盒子样式，使用层级来做重叠
+  .wheel-btn {
+    width: 654px;
+    height: 654px;
+    
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .wheel-jiantou{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-90%);
+      width: 150px;
+      height: 150px;
+      // background-image: url('../../assets/activity/wheel/wheel_btn.png');
+      background-image: url('../../assets/activity/wheel/jiantou.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+      z-index: -1;
+    }
+    .wheel-yuan{
+      width: 150px;
+      height: 150px;
+      border-radius: 150px;
+      // background-image: url('../../assets/activity/wheel/jiantou.png');
+      background-image: url('../../assets/activity/wheel/wheel_btn.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+      transition: transform 6s ease;
+      z-index: 102;
+    }
+  }
+
+  .wheel-btnTop {
+    width: 94px;
+    height: 102px;
+    //background: url('../../assets/activity/BagWheel/wheel_btnTop.png') center center no-repeat;
+    z-index: 110;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .wheel-btn-box {
+    .btn {
+      position: absolute;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .wheelBtn {
+    margin: 30px auto;
+    width: 372px;
+    height: 80px;
+    line-height: 80px;
+    background: transparent;
+    background-image: url('../../assets/innerPage/btn.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    // border: 3px solid #F6C555;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 40px;
+    text-shadow: 0 0 10px #fff;
+    letter-spacing: 12px;
+    text-align: center;
+  }
+}
+
+.titleLogo{
+  position: absolute;
+  width: 45%;
+  margin-top: 100px;
+  margin-left: 20px;
+  z-index: 80;
+  img{
+    width: 100%;
+  }
+}
+
+.codeLogo{
+  position: absolute;
+  bottom: 20px;
+  width: 20%;
+  // margin-top: 100px;
+  margin-left: 20px;
+  z-index: 80;
+  img{
+    width: 100%;
+  }
+}
+
+.follow{
+  // width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+  overflow: auto;
+  color: #ffffff;
+  animation: fadeInUp 0.3s 0.3s alternate;
+  animation-fill-mode: both;
+  text-align: center;
+  .explain-close{
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(23, 194, 194, 0.8);
+    z-index: 9999;
+  }
+  .code{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    // height: 800px;
+    padding: 0 20px;
+    padding-bottom: 100px;
+    background: #f8f5ee;
+    z-index: 100;
+    border-radius: 70px;
+    text-align: center;
+    color:#757575;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    .wheel-gift{
+      margin-top: 30px;
+      width: 270px;
+      height: 270px;
+      border-radius: 30px;
+      padding: 30px 10px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        max-width: 270px;
+        max-height: 270px;
+        // height: 100%;
+      }
+    }
+    .follow-header{
+      width: 45%;
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);  
+      margin:0 auto;
+      // width: 100%;
+    }
+    .follow-emoji{
+      width: 24%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);  
+    }
+    .line{
+      width: 100%;
+      margin-top: 130px;
+      border: 2px solid #757575;;
+    }
+    .follow-conent{
+      margin-top: 50px;
+      font-size: 50px;
+      // margin-bottom: 100px;
+    }
+    .follow-conent1{
+      margin-top: 50px;
+      font-size: 40px;
+      // margin-bottom: 100px;
+    }
+    .follow-code{
+      width: 50%;
+      margin-top: 40px;
+    }
+    .startBtn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 330px;
+      height: 80px;
+      margin-top: 40px;
+      font-size: 40px;
+      color: #ffffff;
+      // background-color: #17c2c2;
+      border-radius: 999px;
+      background-image: url('../../assets/innerPage/btn.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+.explain{
+  width: 100%;
+  // height: 100%;
+  position: absolute;
+  top: 0;
+  // position: fixed;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  overflow: auto;
+  color: #ffffff;
+  animation: bounceIn 0.3s 0.3s alternate;
+  animation-fill-mode: both;
+  .explain-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    // height: 1000px;
+    height: 80%;
+    background: #f8f5ee;
+    border-radius: 70px;
+    z-index: 100;
+    color: #757575;
+    padding: 0 20px;
+    // text-align: center;
+   .explain-nav{
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     height: 140px;
+     line-height: 100px;
+     padding: 20px 0;
+    //  letter-spacing: 10px;
+     border-bottom:3px solid #757575;
+     font-size: 40px;
+     text-align: center;
+     color: #4d567d;
+     font-weight: bold;
+   }
+   .explain-item{
+     width: 100%;
+     height: calc(100% - 350px);
+     overflow: hidden;
+    //  background-color: #ff8585;
+     .explain-srcoll{
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      .explain-items{
+        display: flex;
+        font-size: 38px;
+        color: #4d567d;
+        font-weight: bold;
+        
+        .explain-dian{
+          width: 50px;
+          text-align: center;
+        }
+        .explain-address{
+          flex: 1;
+          word-break: break-all;
+          border-bottom: 1px solid #757575;
+          div:last-child{
+            font-size: 35px;
+            font-weight: normal;
+          }
+        }
+        .explain-address-active{
+          background: #b1e0dd;
+        }
+      }
+     }
+   }
+   .explain-item1{
+    width: 100%;
+    .explain-srcoll{
+     width: 100%;
+     .explain-items{
+       display: flex;
+       font-size: 38px;
+       color: #4d567d;
+       font-weight: bold;
+       
+       .explain-dian{
+         width: 50px;
+         text-align: center;
+       }
+       .explain-address{
+         flex: 1;
+         word-break: break-all;
+         border-bottom: 1px solid #757575;
+         div:last-child{
+           font-size: 35px;
+           font-weight: normal;
+         }
+       }
+       .explain-address-active{
+         background: #b1e0dd;
+       }
+     }
+    }
+  }
+  .explain-item2{
+    width: 100%;
+    height: calc(100% - 590px);
+    overflow: hidden;
+   //  background-color: #ff8585;
+    .explain-srcoll{
+     width: 100%;
+     height: 100%;
+     overflow-y: scroll;
+     .explain-items{
+       display: flex;
+       font-size: 38px;
+       color: #4d567d;
+       font-weight: bold;
+       
+       .explain-dian{
+         width: 50px;
+         text-align: center;
+       }
+       .explain-address{
+         flex: 1;
+         word-break: break-all;
+         border-bottom: 1px solid #757575;
+         div:last-child{
+           font-size: 35px;
+           font-weight: normal;
+         }
+       }
+       .explain-address-active{
+         background: #b1e0dd;
+       }
+     }
+    }
+  }
+  }
+  .explain-close{
+
+    margin: 0 auto;
+    // position: fixed;
+    width: 330px;
+    height: 180px;
+    // background-color: #f38809;
+    // line-height: 80px;
+    font-size: 40px;
+    // bottom: 50px;
+    // left: 50%;
+    // transform: translateX(-50%);
+    // right: 0;
+    // background: #ff8585;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+    .explain-close-enter,.explain-close-back{
+      width: 100%;
+      height: 80px;
+      line-height: 80px;
+      margin-top: 10px;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 9999px;
+      z-index: 9999;
+      // background-color: #ff8585;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .explain-close-back{
+      background-image: url('../../assets/innerPage/btn.png');
+    }
+    .explain-noclose{
+      background-image: url('../../assets/activity/wheel/btn1.png');
+    }
+  }
+}
+.showExplain{
+  height:100vh;
+  overflow:hidden;
+}
+
+.share{
+  // width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  overflow: auto;
+  color: #ffffff;
+  background-image: url('../../assets/innerPage/share.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: fadeInUp 0.3s 0.3s alternate;
+  animation-fill-mode: both;
+  text-align: center;
+}

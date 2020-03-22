@@ -1,0 +1,130 @@
+@import '../../animation.less';
+.test-paper-wrappers{
+  width: 565px;
+  // height: 600px;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  .test-paper-wrapper {
+    animation: fadeInDown 0.8s 0.5s alternate;
+    animation-fill-mode: both;
+    .title-number{
+      color: #ffffff;
+      font-size: 50px;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .test-title {
+      padding: 20px 20px;
+      // height: 160px;
+      line-height: 55px;
+      color: #fff;
+      font-size: 34px;
+      display: flex;
+      flex-direction: row;
+      background: rgba( 0, 0, 0, 0.5);
+      // border-top-left-radius: 25px;
+      // border-top-right-radius: 25px;
+      border-radius: 25px;
+      margin-bottom: 5px;
+  
+      .number {
+        width: 30px;
+        text-align: center;
+        margin: 0 10px;
+        align-items: flex-start;
+      }
+  
+      .text {
+        flex: 1;
+      }
+    }
+  
+    .test-options {
+      padding: 20px 15px;
+      // height: 350px;
+      color: #fff;
+      font-size: 28px;
+      background: rgba( 0, 0, 0, 0.5);
+      border-radius: 25px;
+      // background: #00263c;
+      // border-bottom-left-radius: 25px;
+      // border-bottom-right-radius: 25px;
+  
+      .option-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: center;
+        min-height: 95px;
+        border-bottom: 1px solid #a1d2d3;
+        padding: 15px 0;
+        transition: all 0.1s linear;
+  
+        &:last-child {
+          border-bottom: none;
+        }
+  
+        .number {
+          width: 30px;
+          text-align: center;
+          margin: 0 10px;
+          align-items: flex-start;
+        }
+  
+        .text {
+          flex: 1;
+        }
+  
+        &.selecteSuccess {
+          animation: pulse 0.8s 0.5s alternate;
+          animation-fill-mode: both;
+          color: #fff;
+          background: rgb(87, 153, 209);
+          border-radius: 10px;
+          .number {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+          }
+        }
+  
+        &.selecteFail {
+          animation: pulse 0.8s 0.5s alternate;
+          animation-fill-mode: both;
+          color: #fff;
+          background: #bc3500;
+          border-radius: 10px;
+          .number {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+          }
+        }
+
+        &.selectesuccess{
+          color: #fff;
+          background: rgb(87, 153, 209);
+          border-radius: 10px;
+          .number {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+

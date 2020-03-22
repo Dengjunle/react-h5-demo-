@@ -1,0 +1,81 @@
+@import '../../../animation.less';
+
+.first-page-component {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: transparent;
+  overflow-y: scroll;
+
+  .luckList{
+    background: #fff;
+    width: 100%;
+    height: 500px !important;
+  }
+
+  .titleLogo{
+    position: absolute;
+    width: 45%;
+    margin-top: 100px;
+    margin-left: 20px;
+    img{
+      width: 100%;
+    }
+  }
+  .logo {
+    width: 80%;
+    // height: ;
+    position: absolute;
+    pointer-events: none;
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    img{
+      width: 100%;
+      animation: fadeInDown 0.3s 0.5s alternate;
+      animation-fill-mode: both;
+    }
+  }
+  .tieshi{
+    width: 230px;
+    position: absolute;
+    // pointer-events: none;
+    bottom: 30px;
+    right: 20px;
+    z-index: 999;
+    img{
+      width: 230px;
+    }
+  }
+
+  .innerContent {
+    position: absolute;
+    // bottom: 200px;
+    top: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    // height: 550px;
+    text-align: center;
+    z-index: 10;
+    animation: bounceIn 0.3s 0.5s alternate;
+    animation-fill-mode: both;
+    .startBtn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 330px;
+      height: 80px;
+      margin-bottom: 70px;
+      font-size: 40px;
+      color: #ffffff;
+      // background-color: #17c2c2;
+      border-radius: 999px;
+      background-image: url('../../../assets/innerPage/btn.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
